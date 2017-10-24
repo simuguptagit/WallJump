@@ -29,7 +29,7 @@ public class MainPageScript : MonoBehaviour {
 		levelnor.SetActive (false);
 		levelhigh.SetActive (false);
 		leveleasy.SetActive (false);
-		Debug.Log ("mainjkfhk..."+PlayerPrefs.GetInt ("Levels"));
+
 		if (PlayerPrefs.GetInt ("Levels") == 2)
 			levelnor.SetActive (true);
 		else if (PlayerPrefs.GetInt ("Levels") == 1)
@@ -52,7 +52,7 @@ public class MainPageScript : MonoBehaviour {
 	public void SelectLevelClose(){
 		Levelselectpannel.SetActive (false);
 	}
-	public void selectNormal(){//Debug.Log ("mainjkfhk..."+PlayerPrefs.GetInt ("Levels"));
+	public void selectNormal(){
 		levelnor.SetActive (true);
 		levelhigh.SetActive (false);
 		leveleasy.SetActive (false);
@@ -109,10 +109,23 @@ public class MainPageScript : MonoBehaviour {
 		soundon.SetActive (true);
 		PlayerPrefs.SetInt ("sound", 0);
 	}
+
+	string body = "Hi,Download this amazing fast and addictive Game   " +
+		"https://play.google.com/store/apps/details?id=com.Quantum.WallJump";
+
+	public void shareText(){
+		AndroidJavaClass intentClass = new AndroidJavaClass ("android.content.Intent");
+		AndroidJavaObject intentObject = new AndroidJavaObject ("android.content.Intent");
+		intentObject.Call<AndroidJavaObject>("setAction", intentClass.GetStatic<string>("ACTION_SEND"));
+		intentObject.Call<AndroidJavaObject>("setType", "text/plain");
+		intentObject.Call<AndroidJavaObject>("putExtra", intentClass.GetStatic<string>("EXTRA_TEXT"), body);
+		AndroidJavaClass unity = new AndroidJavaClass ("com.unity3d.player.UnityPlayer");
+		AndroidJavaObject currentActivity = unity.GetStatic<AndroidJavaObject>("currentActivity");
+		currentActivity.Call ("startActivity", intentObject);
+
+	}
 	// Update is called once per frame
 	void Update () {
-		//if (Input.GetMouseButtonDown (0) && Levelselectpannel.activeSelf == true) {
-		//	Levelselectpannel.SetActive (false);
-		//}
+		
 	}
 }

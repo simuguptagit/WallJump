@@ -8,8 +8,6 @@ public class Generate : MonoBehaviour {
 	public GameObject rocks;
 	public GameObject Obs;
 	public static bool obs_genrate;
-	//public static bool Level_Hard;
-	//float generateTime;
 	public static int obstacleLevel;
 	public GameObject FailPannel;
 
@@ -19,10 +17,7 @@ public class Generate : MonoBehaviour {
 		obs_genrate = false;
 		obstacleLevel = 1;
 		InvokeRepeating ("CreateBase", 0,MyConstant.WallRepeatTime);
-		//generateTime =5f;
-		//StartCoroutine (generateObstacle());
 		StartCoroutine (HardnessLevel());
-		//InvokeRepeating ("generateObstacle", 0,5f);
 	}
 	IEnumerator HardnessLevel(){
 		yield return new WaitForSeconds(12f);
@@ -46,24 +41,15 @@ public class Generate : MonoBehaviour {
 		obs_genrate = false;
 		Instantiate (Obs);
 	}
-/*	IEnumerator generateObstacle(){Debug.Log ("obstacle generate..."+MyConstant.generateTime);
-		if(Ball_Rotation_color.Fail == false )
-		yield return new WaitForSeconds(MyConstant.generateTime);
-		if(Ball_Rotation_color.Fail == false )
-		Instantiate (Obs);
-		//MyConstant.generateTime = Random.Range (MyConstant.generateTime, MyConstant.generateTime+3);
-		if(Ball_Rotation_color.Fail == false )
-		StartCoroutine (generateObstacle());
-	}
-*/
+
 	public void restart(){
 		Ball_Rotation_color.Fail = false;
 		SceneManager.LoadScene(1);
+		if (Test.GameAdStartday==0 ||(Test.GameAdStartday >= Test.installationDays)) Test.adsCalling (Test.GameAdType, Test.GameAdId);
 	}
 
 	public void back_menu(){
 		SceneManager.LoadScene(0);
-		//FailPannel.SetActive (false);
 	}
 	// Update is called once per frame
 	void Update () {

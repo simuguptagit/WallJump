@@ -25,8 +25,6 @@ public class MyConstant  {
 
 		if (level == 2) {
 			
-			//wallObstacleSpeed = .4f;
-			//wallObstacledestroytime = 12f;
 			wallObstacleSpeed = 2.2f;
 			wallObstacledestroytime = 8.3f;
 			ballforcejump = 9f;
@@ -37,8 +35,6 @@ public class MyConstant  {
 		} 
 		else if (level == 1) {
 
-			//wallObstacleSpeed = .4f;
-			//wallObstacledestroytime = 12f;
 			wallObstacleSpeed = 2f;
 			wallObstacledestroytime = 8f;
 			ballforcejump = 9f;
@@ -48,8 +44,6 @@ public class MyConstant  {
 			generateTime = 1f;
 		} 
 		else if(level == 3) {
-		     //wallObstacleSpeed = .4f;
-			//wallObstacledestroytime = 12f;
 			wallObstacleSpeed = 2.8f;
 			wallObstacledestroytime = 7f;
 			ballforcejump = 9f;

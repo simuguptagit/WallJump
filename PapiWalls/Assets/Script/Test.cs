@@ -54,13 +54,13 @@ public class Test : MonoBehaviour {
 			PlayerPrefs.SetInt ("Luncher", 0);
 
 		if(PlayerPrefs.GetString ("ServerAdsData").Length<=0){
-			string s="<NJ_DB_FULL>0#3#ca-app-pub-3451337100490595/6491126430#3</NJ_DB_FULL><URL>https://play.google.com/store/apps/details?id=com.app.ninja#https://play.google.com/store/apps/developer?id=Quantum4u&hl=en#https://www.facebook.com</URL>\n <NJ_GAME>0#1#ca-app-pub-3451337100490595/7630137659#1</NJ_GAME>\n<NJ_FAIL>0#3#ca-app-pub-3451337100490595/9370417123#1</NJ_FAIL>\n<NJ_PAUSE>0#3#ca-app-pub-3451337100490595/6491126430#2</NJ_PAUSE>\n<NJ_DASHBOARD>0#1#ca-app-pub-3451337100490595/4066119550#0</NJ_DASHBOAD>";
+			string s="<NJ_DB_FULL>0#3#ca-app-pub-3451337100490595/2432646017#200</NJ_DB_FULL>\n<URL>https://play.google.com/store/apps/details?id=com.app.autocallrecorder#https://play.google.com/store/apps/details?id=com.app.ninja#https://www.facebook.com/profile.php?id=100020476457047</URL>\n <NJ_GAME>0#1#ca-app-pub-3451337100490595/7876544384#1</NJ_GAME>\n<NJ_FAIL>0#3#ca-app-pub-3451337100490595/2432646017#4</NJ_FAIL>\n<NJ_PAUSE>0#3#ca-app-pub-3451337100490595/2432646017#2</NJ_PAUSE>\n<NJ_DASHBOARD>0#1#ca-app-pub-3451337100490595/7876544384#0</NJ_DASHBOAD>";
 			PlayerPrefs.SetString("ServerAdsData",s) ;}
 
 		PlayerPrefs.SetInt("FailOccurLocal",  0) ;
 		PlayerPrefs.SetInt("PauseOccurLocal",  0) ;
 
-			string url = "http://quantum4you.com/piqvalue.php?val=NINJA_GAME";
+		string url = "http://quantum4you.com/piqvalue.php?val=WALL_JUMP";
 			WWW www = new WWW (url);
 			StartCoroutine (WaitForRequest (www));
 	
@@ -111,7 +111,7 @@ public class Test : MonoBehaviour {
 		string[] splitstr4 = str4.Split ('#');
 		string[] splitstr5 = str5.Split ('#');
 		string[] splitstr6 = str6.Split ('#');
-		//Debug.Log ("parsing prblm..." +str6+"  "+ splitstr6 [0]);
+	
 		/***************Ads Start Day **********************/
 		GameAdStartday = int.Parse(splitstr1[0]);
 		FailAdStartday = int.Parse(splitstr2[0]);
@@ -141,7 +141,7 @@ public class Test : MonoBehaviour {
 		PauseAdOccurance =int.Parse(splitstr3[3]);
 		MainAdOccurance = int.Parse(splitstr4[3]);
 		LuncherAdOccurance = int.Parse(splitstr6[3]);
-
+		//Debug.Log ("After111..."+RateIt+"   "+More+"  "+ FbLink+"  "+ PauseAdOccurance+"  "+ MainAdOccurance+"  "+ LuncherAdOccurance);
 	}
 
 	public static  bool LuncherFullDisplay(int server_val){
@@ -217,7 +217,6 @@ public class Test : MonoBehaviour {
 	}
 
 	public static void adsCallingrewardFull(int Type, string id /*,int occurances ,int occur*/ ){
-
         if (Type == 3) 
 				googleads.ShowInterstitial (id);
 		else if (Type == 4) 

@@ -59,7 +59,6 @@ public class GoogleMobileAdsDemoScript : MonoBehaviour
 
 	{
 		bannerAndroidid = id;
-
 		this.bannerView = new BannerView(bannerAndroidid, AdSize.SmartBanner, position);
 
         this.bannerView.OnAdLoaded += this.HandleAdLoaded;
@@ -117,7 +116,7 @@ public class GoogleMobileAdsDemoScript : MonoBehaviour
     }
 
 	public void ShowInterstitial(string id)
-	{//Debug.Log ("After Full Show....."+this.interstitial.IsLoaded()+"   "+id);
+	{
         if (this.interstitial.IsLoaded())
 		{
             this.interstitial.Show();

@@ -19,7 +19,7 @@ public class WallsForword : MonoBehaviour {
 			Vector3 v1 = G2.transform.position;
 			if (Generate.obstacleLevel == 1) {
 				float i = Random.Range (.2f,1.5f);
-				Debug.Log ("mdnksjdnfk111..."+i);
+				//Debug.Log ("mdnksjdnfk111..."+i);
 				v1.y = v1.y + i;
 				G2.transform.position = v1;
 				G1.SetActive (false);
@@ -62,25 +62,17 @@ public class WallsForword : MonoBehaviour {
 				G2.transform.position = v1;
 
 				float j = Random.Range (.9f,1.3f);
-				Debug.Log ("mdnksjdnfk5555..."+i+"   "+j);
+				//Debug.Log ("mdnksjdnfk5555..."+i+"   "+j);
 				v.y = v.y-j;
 				G1.transform.position = v;
 			}
-			//G1.GetComponent<Renderer> ().material.color = Color.blue;
-			//G2.GetComponent<Renderer> ().material.color = Color.blue;
 		} else {	
-			//G1.GetComponent<Renderer> ().material.color = Color.cyan;
-			//G2.GetComponent<Renderer> ().material.color = Color.cyan;
 		}
-		//startPos = transform.position;
 		StartCoroutine (destroyWalls());
 	}
 
 	// Update is called once per frame
 	void Update () {
-		//Vector3 v = transform.position;
-	//	v.x += delta * Mathf.Sin (Time.time * speed);
-	//	transform.position = v;
 		if(Ball_Rotation_color.Fail == false )
 			transform.Translate(Vector3.right*MyConstant.wallObstacleSpeed*Time.smoothDeltaTime*3f);
 	}
